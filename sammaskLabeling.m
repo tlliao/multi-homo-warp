@@ -82,7 +82,7 @@ function [final_labels1 ,final_homos, overlapped_mask1] = sammaskLabeling(img1, 
 
     end 
 
-    %% third: homography fitting for remaining pixels with label==0
+    %% second: homography fitting for remaining pixels with label==0
     remaining_zeromask=refined_labels1==0 & overlapped_mask1;
     remaining_CC1=bwconncomp(remaining_zeromask);
     remaining_sam_idx_zero=remaining_CC1.PixelIdxList;
@@ -104,7 +104,7 @@ function [final_labels1 ,final_homos, overlapped_mask1] = sammaskLabeling(img1, 
         end
     end
   
-    %% fourth: homography fitting for non-overlapping region
+    %% third: homography fitting for non-overlapping region
     out_labels1=zeros(sz1,sz2);
     [cX,cY]=meshgrid(linspace(1,sz2,C2),linspace(1,sz1,C1));
     k=num_H+1;
